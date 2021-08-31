@@ -1,12 +1,12 @@
-name: Lint
+name: Lint and test
 
 on:
   push:
     branches: [ master ]
     
 jobs:
-  lint:
-    name: Lint
+  lint-and-test:
+    name: Lint-and-test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -34,3 +34,10 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install black
+      
+      - name: Lint code
+        run: |
+          black .
+      
+      - name: Test code
+        run: pytest -v .
