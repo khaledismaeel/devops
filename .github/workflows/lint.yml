@@ -33,4 +33,4 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install black==21
+          pip install black
