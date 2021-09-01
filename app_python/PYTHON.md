@@ -1,3 +1,10 @@
+# Testing
+
+Pytest was used to write testcases for our app. [test_app.py](test_app.py) holds the test cases and can be run with
+```bash
+$ pytest app_python/test_app.py
+```
+
 # Python best practices
 
 - Trusting the battlefield-tested IDE over our not-so-professional decisions.
