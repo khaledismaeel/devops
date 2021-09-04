@@ -8,7 +8,7 @@ This repository holds our homework for DevOps Engineering course, Fall 2021.
 
 Here we present a simple Python web application that displays the current time in Moscow. The application was written in
 Flask and hosted on a WSGI server using Gunicorn. See our followed best practices for [Python](PYTHON.md) and
-[Docker](DOCKER.md).
+[Docker](Docker/DOCKER.md).
 
 ## Docker
 

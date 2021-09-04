@@ -4,8 +4,8 @@ RUN useradd -m flask
 USER flask
 WORKDIR /home/flask
 
-COPY requirements.txt requirements.txt
-COPY app.py .
+COPY ../app_python/requirements.txt requirements.txt
+COPY ../app_python/app.py .
 
 RUN pip install --no-warn-script-location -r requirements.txt
 
