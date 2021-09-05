@@ -1,9 +1,7 @@
 name: Lint, test, build, and push
 
-on:
-  push:
-    branches: [ master ]
-    
+on: push
+
 jobs:
   lint-and-test:
     name: Lint-and-test
