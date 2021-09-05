@@ -76,7 +76,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: app_python/
-          file: app_python/Dockerfile
+          file: Docker/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/app_python:latest
