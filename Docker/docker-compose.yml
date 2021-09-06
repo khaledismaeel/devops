@@ -1,0 +1,6 @@
+version: "3"
+services:
+  app_python:
+    image: khaledismaeel/app_python:latest
+    ports:
+      - "8000:8000"
