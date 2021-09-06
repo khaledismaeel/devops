@@ -1,0 +1,8 @@
+- name: test
+  hosts: all
+  become: true
+  vars:
+    ansible_ssh_private_key_file: "/home/khaledismaeel/.ssh/time-in-moscow_key.pem"
+  roles:
+    - docker
+    - app_python
