@@ -1,0 +1,9 @@
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: ../../../../Docker/docker-compose.yml
+    dest: .
+    mode: u=r,g=r,o=r
+    backup: yes
+- name: Spin up the application server
+  community.docker.docker_compose:
+    project_src: .
