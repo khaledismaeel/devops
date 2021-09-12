@@ -1,5 +1,5 @@
 ---
-- name: Ensure old versions of Docker are not installed.
+- name: Ensure old versions of docker are not installed.
   package:
     name:
       - docker
@@ -25,7 +25,7 @@
     state: present
   when: ansible_distribution == 'Ubuntu' or ansible_distribution_version is version('20.04', '>=')
 
-- name: Add Docker apt key.
+- name: Add docker apt key.
   apt_key:
     url: "{{ docker_apt_gpg_key }}"
     id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
@@ -37,14 +37,14 @@
   package: name=curl state=present
   when: add_repository_key is failed
 
-- name: Add Docker apt key (alternative for older systems without SNI).
+- name: Add docker apt key (alternative for older systems without SNI).
   shell: >
     curl -sSL {{ docker_apt_gpg_key }} | sudo apt-key add -
   args:
     warn: false
   when: add_repository_key is failed
 
-- name: Add Docker repository.
+- name: Add docker repository.
   apt_repository:
     repo: "{{ docker_apt_repository }}"
     state: present

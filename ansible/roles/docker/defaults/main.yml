@@ -9,13 +9,13 @@ docker_service_state: started
 docker_service_enabled: true
 docker_restart_handler_state: restarted
 
-# Docker Compose options.
+# docker Compose options.
 docker_install_compose: true
 docker_compose_version: "1.26.0"
 docker_compose_url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
 docker_compose_path: /usr/local/bin/docker-compose
 
-# Docker repo URL.
+# docker repo URL.
 docker_repo_url: https://download.docker.com/linux
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'nightly' if needed.
@@ -34,5 +34,5 @@ docker_yum_gpg_key: "{{ docker_repo_url }}/centos/gpg"
 # A list of users who will be added to the docker group.
 docker_users: []
 
-# Docker daemon options as a dict
+# docker daemon options as a dict
 docker_daemon_options: {}

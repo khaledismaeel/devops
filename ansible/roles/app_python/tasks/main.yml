@@ -1,6 +1,6 @@
 - name: Copy docker compose file
   ansible.builtin.copy:
-    src: ../../../../Docker/docker-compose.yml
+    src: ../../../../docker/docker-compose.yml
     dest: .
     mode: u=r,g=r,o=r
     backup: yes
