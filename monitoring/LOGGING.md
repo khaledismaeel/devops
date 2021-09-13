@@ -16,9 +16,11 @@ thing or two on practices!
 - Rotate your logs.
 - Use templates.
 
-## Worst practices
+## Worst practices (in our code)
 
 - Mounting `/var/lib` and similar, even if it is read only. You should stick to docker volumes in order not to leak log
 information should the monitoring networks be compromised. It is rather surprising to see this in almost all examples by
 Grafana themselves.
 - Not using tags.
+- Not using templates.
+- And a lot more :)
