@@ -1,0 +1,53 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  app_python:
+    image: khaledismaeel/app_python:latest
+    ports:
+      - "8000:8000"
+    networks:
+      - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "10"
+
+  loki:
+    image: grafana/loki:2.3.0
+    ports:
+      - "3100:3100"
+    networks:
+      - loki
+
+  promtail:
+    image: grafana/promtail:2.3.0
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./promtail-config.yaml:/mnt/promtail-config.yaml:ro
+    command: -config.file=/mnt/promtail-config.yaml
+    ports:
+      - "9080:9080"
+    networks:
+      - loki
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus-config.yaml:/mnt/prometheus-config.yaml:ro
+    command: --config.file=/mnt/prometheus-config.yaml
+    ports:
+      - "9090:9090"
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - loki
+
