@@ -1,0 +1,21 @@
+apiVersion: v2
+
+name: app-python
+
+description: A simple web application that displays the time in Moscow.
+
+type: application
+
+version: 0.1.0
+
+appVersion: "0.1.0"
+
+kubeVersion: ">= 1.22.1"
+
+home: https://github.com/khaledismaeel/devops
+
+maintainers:
+  - name: Khaled Ismaeel
+    email: k.ismaeel@innopolis.university
+    url: https://github.com/khaledismaeel
+
