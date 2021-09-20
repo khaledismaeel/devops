@@ -77,3 +77,17 @@ minikube --namespace app-python service app-python
 ```
 And we will be presented with the following (incredibly informative) webpage
 ![](images/browser.png)
+
+## Theoretical bonus
+
+- Ingress: a set of rules and configurations to control access to the cluster _without regard to a particular
+implementation_.
+- Ingress controller: the software implementation of Ingress rules, most commonly NginX.
+- Stateful set: similar to deployments, except that it treats pods as unique and not interchangeable. Particularly
+useful for applications with a persistent state.
+- Daemon set: similar to deployments, except that it deploys according to the available capacity and not the desired
+state. That is, it will create pods on nodes satisfying certain criteria no matter how many pods are already running.
+A useful use case is running logging pods on all nodes.
+- Persistent volume: an abstraction of persistent storage the hides its true nature (local, cloud, etc).
+- Library charts: charts which are not meant to be deployed but rather used as dependencies. They have been introduced
+in Helm version 3 to mitigate accidental deployment of charts which are not meant to be deployed and other benefits.
