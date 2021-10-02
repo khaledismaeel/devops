@@ -30,4 +30,11 @@ spec:
               secretKeyRef:
                 name: token
                 key: token
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 512Mi
       restartPolicy: Always
