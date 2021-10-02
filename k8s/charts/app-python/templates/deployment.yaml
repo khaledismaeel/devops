@@ -24,4 +24,10 @@ spec:
         ports:
         - containerPort: 8000
           protocol: TCP
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: token
+                key: token
       restartPolicy: Always
