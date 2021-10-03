@@ -10,7 +10,7 @@ version: 0.1.0
 
 appVersion: "0.1.0"
 
-kubeVersion: ">= 1.22.1"
+kubeVersion: ">= 1.2"
 
 home: https://github.com/khaledismaeel/devops
 
