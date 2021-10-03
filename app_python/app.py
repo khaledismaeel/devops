@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 import os
 
 
-def create_app(visits_file_path='~/app-python/visits', reset=False):
+def create_app(visits_file_path='data/visits', reset=False):
     visits_file_path = os.path.expanduser(visits_file_path)
 
     app = Flask(__name__)
