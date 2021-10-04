@@ -10,7 +10,7 @@ def create_app(visits_file_path='data/visits', reset=False):
     app = Flask(__name__)
 
     if not os.path.isfile(visits_file_path):
-        os.makedirs(os.path.dirname(visits_file_path))
+        os.makedirs(os.path.dirname(visits_file_path), exist_ok=True)
         with open(visits_file_path, 'w' if reset else 'a') as _:
             pass
 
