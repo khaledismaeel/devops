@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: app-python
+  name: app-python
+  namespace: app-python
+spec:
+  replicas: 3
+  serviceName: app-python
+  selector:
+    matchLabels:
+      app: app-python
+  template:
+    metadata:
+      labels:
+        app: app-python
+    spec:
+      containers:
+        - image: khaledismaeel/app_python
+          name: app-python
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          env:
+            - name: TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: token
+                  key: token
+          volumeMounts:
+            - name: editor-config
+              mountPath: /etc/config
+            - name: visits
+              mountPath: /var/app-python
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+      volumes:
+        - name: editor-config
+          configMap:
+            name: editor-config
+        - name: visits
+          persistentVolumeClaim:
+            claimName: visits
+
+  volumeClaimTemplates:
+    - metadata:
+        name: visits
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 32Mi
