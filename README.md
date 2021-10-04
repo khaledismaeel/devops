@@ -14,5 +14,5 @@ Flask and hosted on a WSGI server using Gunicorn. See our followed best practice
 
 Our application is available through a Docker container at `khaledismaeel/app_python`. To run the image execute
 ``` bash
-$ docker run --publish 80:80 khaledismaeel/app_python
+$ docker run --publish 8000:8000 khaledismaeel/app_python
 ```
