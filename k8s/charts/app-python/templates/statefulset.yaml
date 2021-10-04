@@ -42,6 +42,35 @@ spec:
             limits:
               cpu: 250m
               memory: 512Mi
+      initContainers:
+        - name: get-typing-is-hard
+          image: busybox
+          command:
+            - wget
+            - -O
+            - /var/app-python/index.html
+            - https://3fx.ch/typing-is-hard.html
+          volumeMounts:
+            - name: visits
+              mountPath: /var/app-python/
+        - name: copy-typing-is-hard
+          image: busybox
+          command:
+            - cp
+            - /var/app-python/index.html
+            - /var/app-python/new_index.html
+          volumeMounts:
+            - name: visits
+              mountPath: /var/app-python/
+        - name: remove-old-typing-is-hard
+          image: busybox
+          command:
+            - rm
+            - /var/app-python/index.html
+          volumeMounts:
+            - name: visits
+              mountPath: /var/app-python/
+      dnsPolicy: Default
       volumes:
         - name: editor-config
           configMap:
